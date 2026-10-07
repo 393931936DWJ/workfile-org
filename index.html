@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作文件组织法 · 我的职业方法论</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E3A5F'/><path d='M8 10h16M8 16h16M8 22h9' stroke='%23F2E7D5' stroke-width='2.6' stroke-linecap='round'/></svg>">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FAF7F0;
+  --ink:#23272B;
+  --blue:#1E3A5F;
+  --blue-soft:#2E4E7A;
+  --amber:#B97B24;
+  --line:#D9D2C2;
+  --muted:#6E6658;
+  --panel:#F1ECE0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans SC',system-ui,-apple-system,'Microsoft YaHei',sans-serif;
+  line-height:1.8;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+/* ===== header ===== */
+header.top{
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:14px;letter-spacing:.06em;}
+.nav .mark{font-weight:500;color:var(--blue);}
+.nav .links a{color:var(--muted);margin-left:22px;text-decoration:none;transition:color .2s;}
+.nav .links a:hover{color:var(--blue);}
+
+/* ===== hero ===== */
+.hero{padding:88px 0 60px;border-bottom:1px solid var(--line);}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:.2em;color:var(--amber);
+  text-transform:uppercase;
+}
+.hero .kicker::before{content:"";width:26px;height:1px;background:var(--amber);}
+.hero h1{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;font-size:46px;line-height:1.2;
+  margin:22px 0 20px;letter-spacing:.01em;
+}
+.hero .sub{font-size:18px;color:var(--muted);max-width:620px;}
+.hero .meta{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;
+}
+.hero .meta span{
+  font-size:13px;padding:5px 14px;border:1px solid var(--line);
+  border-radius:2px;color:var(--blue-soft);letter-spacing:.05em;
+}
+
+/* ===== sections ===== */
+section{padding:64px 0;border-bottom:1px solid var(--line);}
+.sec-num{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--amber);letter-spacing:.25em;}
+h2.sec-title{
+  font-family:'Noto Serif SC',serif;font-weight:700;font-size:30px;
+  margin:8px 0 14px;
+}
+.sec-lead{color:var(--muted);font-size:15px;margin-bottom:32px;max-width:640px;}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-left:4px solid var(--blue);
+  padding:22px 24px;border-radius:2px;
+}
+.card h3{font-family:'Noto Serif SC',serif;font-weight:700;font-size:18px;margin-bottom:12px;color:var(--blue);}
+.card ul{list-style:none;}
+.card li{
+  position:relative;padding-left:18px;margin-bottom:10px;font-size:14px;color:var(--ink);
+}
+.card li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:var(--amber);}
+.card code{
+  background:#EFE8D8;padding:1px 5px;font-size:13px;border-radius:2px;
+  font-family:Consolas,'Courier New',monospace;
+}
+
+/* rule block */
+.rule{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.rule .rbox{background:var(--panel);border:1px solid var(--line);padding:22px 24px;border-radius:2px;}
+.rule .rbox h3{font-family:'Noto Serif SC',serif;font-size:16px;font-weight:700;margin-bottom:14px;color:var(--blue);}
+.rule .rbox p{font-size:14px;color:var(--ink);}
+.rule .rbox p + p{margin-top:8px;}
+.badge{display:inline-block;font-size:11px;color:var(--amber);border:1px solid var(--amber);padding:1px 7px;border-radius:2px;margin-left:6px;vertical-align:middle;letter-spacing:.1em;}
+
+/* sample block */
+.sample{background:var(--panel);border:1px solid var(--line);border-radius:2px;overflow:hidden;}
+.sample .shead{background:var(--blue);color:#F4EEDF;padding:10px 18px;font-size:13px;letter-spacing:.08em;}
+.sample .sbody{padding:18px;font-family:Consolas,'Courier New',monospace;font-size:13px;color:var(--ink);line-height:2;}
+.sample .sbody .cm{color:var(--muted);}
+.sample .sbody .ok{color:var(--blue-soft);font-weight:500;}
+.sample .sbody .no{color:#9A4A3A;text-decoration:line-through;}
+
+/* business */
+.biz{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.biz .bitem{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--amber);padding:22px 24px;border-radius:2px;}
+.biz .bitem h3{font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;margin-bottom:10px;}
+.biz .bitem p{font-size:14px;color:var(--muted);}
+.biz .bitem .tag{display:inline-block;font-size:11px;color:var(--blue-soft);background:#E7E1D2;padding:2px 9px;border-radius:2px;margin-bottom:12px;letter-spacing:.05em;}
+
+/* footer */
+footer{padding:48px 0 60px;text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--line);}
+.privacy-note{
+  margin-top:20px;font-size:12px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:20px;max-width:560px;margin-left:auto;margin-right:auto;
+}
+
+/* responsive */
+@media (max-width:640px){
+  .hero h1{font-size:32px;}
+  .cards,.rule,.biz{grid-template-columns:1fr;}
+  .hero{padding:56px 0 40px;}
+  section{padding:48px 0;}
+  .nav .links a{margin-left:14px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <div class="mark">WORK·ORG / 工作文件组织法</div>
+    <nav class="links">
+      <a href="#method">方法</a>
+      <a href="#naming">命名</a>
+      <a href="#business">业务</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">A Personal Work Methodology</div>
+    <h1>把日常工作<br>组织成一套可复用的规范</h1>
+    <p class="sub">从变压器制造、多平台电商运营到跨境外贸，我用一套统一的「建文件 · 命名 · 分析 · 整理」方法，让每一份产出都可追溯、可复用、无隐私冗余。</p>
+    <div class="meta">
+      <span>制造业 · 变压器</span>
+      <span>多平台电商</span>
+      <span>跨境外贸</span>
+      <span>自动化 &amp; AI</span>
+    </div>
+  </div>
+
+  <!-- ===== 总流程 ===== -->
+  <section id="flow">
+    <div class="sec-num">01 — 总流程</div>
+    <h2 class="sec-title">任何任务，先过五个关卡</h2>
+    <p class="sec-lead">这套流程保证每一步都有依据，而不是靠印象推进。</p>
+    <div class="cards">
+      <div class="card"><h3>探查</h3><ul><li>先完整读取全部输入材料，核实版本、名词、接口</li><li>读不到就先解决读取问题，不用二手摘要代替</li></ul></div>
+      <div class="card"><h3>约束</h3><ul><li>守住点名的技术栈、结构、格式、交付形态</li><li>偏离需先说明理由并取得同意</li></ul></div>
+      <div class="card"><h3>证据</h3><ul><li>每个数字来自输入、信源或可复现计算</li><li>合计换算用工具算，外部事实附来源</li></ul></div>
+      <div class="card"><h3>执行</h3><ul><li>受阻时换通道，不降级交付物</li><li>同类错误查共同成因，不掩盖 warning</li></ul></div>
+      <div class="card"><h3>验证 → 交付</h3><ul><li>用与生成不同的路径回读、跑测试、抽样重算</li><li>交付时写明产物名、路径、打开方式</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ===== 四套方法 ===== -->
+  <section id="method">
+    <div class="sec-num">02 — 核心方法</div>
+    <h2 class="sec-title">四套方法</h2>
+    <p class="sec-lead">建文件、命名、分析、整理——这四件事统一了我的整个工作流。</p>
+    <div class="cards">
+      <div class="card"><h3>① 建文件 · 结构</h3><ul><li>交付物统一归入主工作目录</li><li>每个任务一个独立项目文件夹，不散落在根目录</li><li>项目内按需建 <code>原始资料 / 产物 / 总结</code> 子目录</li><li>更新文件不覆盖旧版，新建带版本号的新文件</li></ul></div>
+      <div class="card"><h3>② 命名 · 规则</h3><ul><li>项目文件夹：<code>YYYYMMDD---项目名</code></li><li>日期 8 位纯数字，禁止横杠</li><li>版本文件：<code>原文件名（第X版）</code></li><li>总结文件同样按日期+内容命名</li></ul></div>
+      <div class="card"><h3>③ 分析 · 方法</h3><ul><li>数据分析走：<b>明细 → 汇总 → 排序 → 归因</b></li><li>可比较信息优先用表格呈现</li><li>汇总由明细现算，跨产物并排核对</li><li>结论不超出检查范围，主动找反证</li></ul></div>
+      <div class="card"><h3>④ 整理 · 归档</h3><ul><li>资料按「原始 / 产物 / 总结」分类</li><li>关键业务数据做<b>双备份</b>，记录双表 ID</li><li>同步冲突时列出来源交人拍板，不静默覆盖</li><li>批量产出继承统一规范，尺寸量化</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ===== 命名细节 ===== -->
+  <section id="naming">
+    <div class="sec-num">03 — 命名规范</div>
+    <h2 class="sec-title">命名即归档</h2>
+    <p class="sec-lead">这是我个人最看重的硬规则：命名方式决定了文件好不好找、能不能复用。</p>
+    <div class="rule">
+      <div class="rbox"><h3>项目文件夹</h3><p><code>YYYYMMDD---项目名</code><span class="badge">硬性</span></p><p>日期 8 位纯数字，<b>禁止横杠</b>；必须有日期前缀 + 内容，禁止纯日期名、禁止无日期前缀。</p></div>
+      <div class="rbox"><h3>版本文件</h3><p>原文件名 + 中文 <code>（第X版）</code></p><p>如 <code>RFQ_TECHNICAL_DETAILS_已填报价_第四版.xlsx</code>，更新不覆盖旧版。</p></div>
+    </div>
+    <div class="sample" style="margin-top:20px;">
+      <div class="shead">命名示例</div>
+      <div class="sbody">
+        <span class="cm"># 正确的项目文件夹命名</span><br>
+        <span class="ok">20261005---京东旗舰店关键词月度汇总报表</span><br>
+        <span class="ok">20261004---舜红天猫客服话术学习</span><br><br>
+        <span class="cm"># 错误的写法</span><br>
+        <span class="no">2026-10-05---项目</span> &nbsp;<span class="cm"># 日期带横杠</span><br>
+        <span class="no">项目文件夹</span> &nbsp;<span class="cm"># 无日期前缀</span><br><br>
+        <span class="cm"># 版本文件</span><br>
+        <span class="ok">RFQ_TECHNICAL_DETAILS_已填报价_第四版.xlsx</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 业务 ===== -->
+  <section id="business">
+    <div class="sec-num">04 — 业务实践</div>
+    <h2 class="sec-title">方法落在真实业务上</h2>
+    <p class="sec-lead">这套方法论在制造、电商、外贸、自动化与 AI 五个方向上反复使用。</p>
+    <div class="biz">
+      <div class="bitem"><span class="tag">制造 · 产品</span><h3>变压器与五金配件</h3><p>变压器（含工业定制场景，如 480V→380V 降压）与高频铁芯系列产品，熟悉参数、卖点提炼与质量把控。</p></div>
+      <div class="bitem"><span class="tag">多平台电商</span><h3>京东 / 天猫 / 抖音 / 拼多多 / 小红书</h3><p>京准通关键词投放与月度汇总报表、投产比优化；客服话术 SOP 与售后流程；多店铺实操。</p></div>
+      <div class="bitem"><span class="tag">跨境外贸</span><h3>RFQ 报价与合规</h3><p>外贸 RFQ 报价表、商业发票与产品标准整理，FOB 报关、跨境认证、涉外收款与合规风险处理。</p></div>
+      <div class="bitem"><span class="tag">自动化 · 技术</span><h3>企微机器人 &amp; 数据打通</h3><p>企业微信机器人搭建与维护、跨系统数据打通、CRM 两表同步、业务数据双备份、Windows 维护与自动化脚本。</p></div>
+      <div class="bitem"><span class="tag">AI 应用</span><h3>用 AI 提效运营</h3><p>AI 视频生成、AI 办公自动化与提示词工程，把重复劳动交给工具，把判断留给人。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© <span id="yr"></span> 工作文件组织法 · 职业方法论分享</div>
+    <div class="privacy-note">本页为个人职业方法论与业务经验分享，已去除全部个人隐私信息（年龄、家庭、财产、健康、住址等）。</div>
+  </footer>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
